@@ -9,15 +9,17 @@
     * {
       box-sizing: border-box;
     }
-
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0;
+      height: 100%;
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #212529;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       min-height: 100vh;
       padding: 20px;
     }
@@ -26,11 +28,12 @@
       background: #fff;
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       border-radius: 20px;
-      max-width: 900px;
-      width: 100%;
+      max-width: 1200px; /* حجم أكبر */
+      width: 90%;
+      margin: 0 auto;
       display: flex;
       gap: 40px;
-      padding: 30px;
+      padding: 40px 40px; /* مساحات أكبر */
       align-items: center;
       flex-wrap: wrap;
     }
@@ -48,20 +51,21 @@
     }
 
     .bot-info {
-      flex: 2 1 400px;
+      flex: 2 1 500px;
+      text-align: left;
     }
 
     .bot-info h1 {
-      margin: 0 0 10px;
-      font-size: 2.5rem;
+      margin: 0 0 15px;
+      font-size: 3rem; /* خط أكبر */
       font-weight: 700;
-      color: #5865F2; /* Discord blurple */
+      color: #5865F2;
     }
 
     .bot-info p {
-      margin: 0 0 25px;
-      font-size: 1.1rem;
-      line-height: 1.5;
+      margin: 0 0 30px;
+      font-size: 1.25rem; /* حجم أكبر */
+      line-height: 1.6;
       color: #495057;
     }
 
@@ -73,18 +77,19 @@
 
     .btn {
       text-decoration: none;
-      padding: 14px 28px;
+      padding: 16px 32px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
       border-radius: 10px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
       box-shadow: 0 6px 15px rgba(114, 137, 218, 0.3);
-      flex: 1 1 150px;
+      flex: 1 1 160px;
       text-align: center;
       color: white;
       background-color: #5865F2;
       border: none;
+      user-select: none;
     }
 
     .btn-secondary {
@@ -102,11 +107,13 @@
       .container {
         flex-direction: column;
         padding: 20px;
+        text-align: center;
       }
 
       .bot-image, .bot-info {
         max-width: 100%;
         flex: none;
+        text-align: center;
       }
 
       .buttons {
