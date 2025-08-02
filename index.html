@@ -3,114 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Bot - Discord Bot</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <title>Role Bot - Discord Bot</title>
     <style>
-        /* --- General Styles --- */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #1e1f22; /* A modern dark background */
-            color: #dcddde;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* Import a modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* Basic Reset and Theme */
+        :root {
+            --background-color: #1e1e2e;
+            --surface-color: #2a2a3e;
+            --primary-color: #5865F2; /* Discord Blurple */
+            --text-color: #f5f5f5;
+            --text-muted-color: #a9a9b3;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        /* --- Main Bot Card --- */
-        .bot-card {
-            background-color: #2b2d31;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            padding: 40px;
-            max-width: 450px;
-            width: 100%;
-            border: 1px solid #40434b;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
         }
 
-        .bot-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%; /* Makes the image circular */
-            border: 4px solid #5865f2; /* Discord's main color */
-            margin-bottom: 20px;
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Header / Hero Section */
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
             object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
         }
 
         h1 {
-            color: #ffffff;
+            font-size: 2.8rem;
             font-weight: 700;
-            font-size: 2.2em;
-            margin: 10px 0;
+            margin-bottom: 0.5rem;
         }
 
-        .bot-description {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #b9bbbe;
-        }
-
-        /* --- Invite Button --- */
-        .invite-button {
-            display: inline-block;
-            background-color: #5865f2; /* Discord's "Blurple" */
-            color: #ffffff;
-            font-size: 1.1em;
-            font-weight: 600;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.2s ease-in-out, transform 0.2s ease;
-        }
-
-        .invite-button:hover {
-            background-color: #4752c4;
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
-
-        /* --- Ads Section --- */
-        .ads-container {
-            margin-top: 40px;
-            padding: 20px;
-            width: 100%;
-            max-width: 450px;
-            background-color: #2b2d31;
-            border: 1px dashed #40434b;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .ads-container h3 {
-            margin-top: 0;
-            color: #72767d;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        .slogan {
+            font-size: 1.2rem;
+            color: var(--text-muted-color);
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
         }
         
-        /* --- Footer --- */
-        footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #72767d;
+        /* Action Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        footer a {
-            color: #b9bbbe;
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--surface-color);
+        }
+        .btn-secondary:hover {
+            background-color: var(--surface-color);
+        }
+
+        /* Features Section */
+        .features {
+            padding-top: 2rem;
+        }
+        
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .feature-card {
+            background-color: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted-color);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--surface-color);
+            color: var(--text-muted-color);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--primary-color);
             text-decoration: none;
         }
-
-        footer a:hover {
+        .footer a:hover {
             text-decoration: underline;
         }
 
@@ -118,28 +164,43 @@
 </head>
 <body>
 
-    <div class="bot-card">
-        <img src="https://i.imgur.com/sB02V17.png" alt="Bot Avatar" class="bot-avatar">
+    <div class="container">
         
-        <h1>My Awesome Bot</h1>
-        
-        <p class="bot-description">
-            A powerful and versatile bot designed to enhance your Discord server with moderation, fun commands, and utility features. Easy to use and fully customizable!
-        </p>
-        
-        <a href="https://discord.com/oauth2/authorize?client_id=1401226751174246550&permissions=268504064&integration_type=0&scope=bot" class="invite-button" target="_blank">
-            Invite to Server
-        </a>
-    </div>
+        <header class="header">
+            <img src="https://cdn.discordapp.com/attachments/882226216172679168/1401283853527814224/Picsart_25-08-02_21-57-35-288.jpg?ex=688fb6c9&is=688e6549&hm=56629e40e8722333b90004bf665dbf0bb8bb342daa75177582f19d5cbc82480a&" alt="Role Bot Profile Picture" class="profile-picture">
+            <h1>Role Bot</h1>
+            <p class="slogan">
+                Tired of manually assigning roles? Role Bot automates your server management. The moment a new bot joins, it's instantly given the "Bot" role. No commands, no setup, just seamless organization.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Invite to Discord</a>
+                <a href="https://github.com/Uchiha3Itachi" target="_blank" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </header>
 
-    <div class="ads-container">
-        <h3>Advertisement</h3>
-        <div style="width: 100%; height: 90px; background-color: #202225; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #4f545c;">Ad Space (e.g., 320x90)</div>
+        <main class="features">
+            <h2>Why Choose Role Bot?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>⚙️ Automatic Organization</h3>
+                    <p>Keep your member list tidy and easy to navigate by instantly distinguishing bots from regular users.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✅ Zero Configuration</h3>
+                    <p>Simply invite Role Bot to your server, and it starts working immediately. No complex setup or commands needed.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Enhanced Clarity</h3>
+                    <p>Improve your server's management and security by making it easy to identify all automated accounts at a glance.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Developed with ❤️ by <a href="https://github.com/Uchiha3Itachi" target="_blank">Mohammed Nasr</a></p>
+        </footer>
+
     </div>
-    
-    <footer>
-        <p>&copy; 2025 My Awesome Bot. Created by <a href="#" target="_blank">Your Name</a>.</p>
-    </footer>
 
 </body>
 </html>
