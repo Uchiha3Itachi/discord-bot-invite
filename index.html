@@ -5,105 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RolePilot - Discord Bot</title>
   <style>
-    /* الخط العام */
+    /* Reset بسيط */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #1e1e2f;
-      color: #ffffff;
-      text-align: center;
-      padding: 40px 20px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: #212529;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    /* صورة البانر */
-    .banner {
-      width: 250px;
-      height: 250px;
+    .container {
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      gap: 40px;
+      padding: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .bot-image {
+      flex: 1 1 280px;
+      max-width: 280px;
+    }
+
+    .bot-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(114, 137, 218, 0.4);
       object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #7289da;
-      box-shadow: 0 4px 15px rgba(114, 137, 218, 0.7);
-      margin: 0 auto 30px;
-      transition: transform 0.3s ease;
     }
 
-    .banner:hover {
-      transform: scale(1.05);
+    .bot-info {
+      flex: 2 1 400px;
     }
 
-    /* العنوان */
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
+    .bot-info h1 {
+      margin: 0 0 10px;
+      font-size: 2.5rem;
       font-weight: 700;
+      color: #5865F2; /* Discord blurple */
     }
 
-    /* النص التوضيحي */
-    p {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      color: #c0c0d0;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.5;
-    }
-
-    /* الأزرار */
-    .button {
-      display: inline-block;
-      margin: 10px 15px;
-      padding: 14px 32px;
+    .bot-info p {
+      margin: 0 0 25px;
       font-size: 1.1rem;
-      color: #fff;
-      background-color: #7289da;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(114, 137, 218, 0.6);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      line-height: 1.5;
+      color: #495057;
     }
 
-    .button:hover {
-      background-color: #5b6eae;
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 28px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 15px rgba(114, 137, 218, 0.3);
+      flex: 1 1 150px;
+      text-align: center;
+      color: white;
+      background-color: #5865F2;
+      border: none;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #4752c4;
       transform: translateY(-3px);
     }
 
-    /* تحسين العرض على الشاشات الصغيرة */
-    @media (max-width: 480px) {
-      .banner {
-        width: 180px;
-        height: 180px;
-        margin-bottom: 20px;
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
       }
 
-      h1 {
-        font-size: 2rem;
+      .bot-image, .bot-info {
+        max-width: 100%;
+        flex: none;
       }
 
-      p {
-        font-size: 1rem;
-        max-width: 90%;
+      .buttons {
+        justify-content: center;
       }
 
-      .button {
-        width: 80%;
-        padding: 12px 0;
-        font-size: 1rem;
+      .btn {
+        flex: none;
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-
-  <img src="images/banner.jpg" alt="RolePilot Bot Banner" class="banner" />
-
-  <h1>RolePilot</h1>
-  <p>Your modern Discord role management assistant. Effortless role setup, instant reactions, and powerful permission controls—all in one bot.</p>
-
-  <a href="https://discord.com/oauth2/authorize?client_id=1401226751174246550&scope=bot&permissions=8" class="button" target="_blank" rel="noopener noreferrer">🚀 Invite to Discord</a>
-  <a href="https://github.com/Uchiha3Itachi" class="button" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-
+  <div class="container">
+    <div class="bot-image">
+      <img src="images/banner.jpg" alt="RolePilot Bot" />
+    </div>
+    <div class="bot-info">
+      <h1>RolePilot</h1>
+      <p>Your modern Discord role management assistant. Effortless role setup, instant reactions, and powerful permission controls—all in one bot.</p>
+      <div class="buttons">
+        <a href="https://discord.com/oauth2/authorize?client_id=1401226751174246550&scope=bot&permissions=8" target="_blank" rel="noopener noreferrer" class="btn">🚀 Invite to Discord</a>
+        <a href="https://github.com/Uchiha3Itachi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View on GitHub</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
