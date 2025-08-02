@@ -3,57 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Discord Bot</title>
+  <title>RolePilot - Discord Bot</title>
   <style>
+    /* الخط العام */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #1e1e2f;
-      color: white;
+      color: #ffffff;
       text-align: center;
+      padding: 40px 20px;
     }
+
+    /* صورة البانر */
     .banner {
-      width: 100%;
-      max-height: 400px;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
-      border-bottom: 3px solid #7289da;
-      display: block;
-      margin: 0 auto;
+      border-radius: 50%;
+      border: 5px solid #7289da;
+      box-shadow: 0 4px 15px rgba(114, 137, 218, 0.7);
+      margin: 0 auto 30px;
+      transition: transform 0.3s ease;
     }
-    .content {
-      padding: 20px;
+
+    .banner:hover {
+      transform: scale(1.05);
     }
+
+    /* العنوان */
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    /* النص التوضيحي */
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: #c0c0d0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* الأزرار */
     .button {
       display: inline-block;
-      margin: 15px;
-      padding: 12px 25px;
-      font-size: 18px;
-      color: white;
+      margin: 10px 15px;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      color: #fff;
       background-color: #7289da;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(114, 137, 218, 0.6);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
     .button:hover {
       background-color: #5b6eae;
+      transform: translateY(-3px);
+    }
+
+    /* تحسين العرض على الشاشات الصغيرة */
+    @media (max-width: 480px) {
+      .banner {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+
+      .button {
+        width: 80%;
+        padding: 12px 0;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ صورة البانر -->
-  <img src="images/banner.jpg" alt="Discord Bot Banner" class="banner" />
+  <img src="images/banner.jpg" alt="RolePilot Bot Banner" class="banner" />
 
-  <div class="content">
-    <h1>Welcome to My Discord Bot</h1>
-    <p>This bot will change your server forever!</p>
+  <h1>RolePilot</h1>
+  <p>Your modern Discord role management assistant. Effortless role setup, instant reactions, and powerful permission controls—all in one bot.</p>
 
-    <!-- أزرار -->
-    <a href="https://discord.com/oauth2/authorize?client_id=1234567890&scope=bot" class="button">Invite Bot</a>
-    <a href="https://discord.gg/yourserver" class="button">Join Support Server</a>
-  </div>
+  <a href="https://discord.com/oauth2/authorize?client_id=1401226751174246550&scope=bot&permissions=8" class="button" target="_blank" rel="noopener noreferrer">🚀 Invite to Discord</a>
+  <a href="https://github.com/Uchiha3Itachi" class="button" target="_blank" rel="noopener noreferrer">View on GitHub</a>
 
 </body>
 </html>
