@@ -1,42 +1,76 @@
-import { Button } from "@/components/ui/button"; import { useTheme } from "next-themes"; import { useState } from "react"; import Image from "next/image";
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RolePilot - Discord Bot</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/882226216172679168/1401283853527814224/Picsart_25-08-02_21-57-35-288.jpg" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #0e0e10;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-top: 50px;
+        text-align: center;
+      }
+      img.bot-avatar {
+        width: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        border: 4px solid #7289da;
+      }
+      .btn-primary {
+        background-color: #7289da;
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #5b6eae;
+      }
+      .feature {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="https://cdn.discordapp.com/attachments/882226216172679168/1401283853527814224/Picsart_25-08-02_21-57-35-288.jpg" alt="RolePilot Bot" class="bot-avatar">
+      <h1 class="mt-3">RolePilot</h1>
+      <p class="lead">Your modern Discord role management assistant</p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1401226751174246550&scope=bot&permissions=8" class="btn btn-primary mb-4" target="_blank">🚀 Invite to Discord</a>
 
-export default function Home() { const { theme, setTheme } = useTheme(); const [language, setLanguage] = useState("en");
-
-const toggleTheme = () => { setTheme(theme === "light" ? "dark" : "light"); };
-
-const toggleLanguage = () => { setLanguage(language === "en" ? "ar" : "en"); };
-
-return ( <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4"> <div className="absolute top-4 right-4 flex gap-2"> <Button onClick={toggleTheme} variant="secondary"> {theme === "light" ? "🌙 Dark" : "☀️ Light"} </Button> <Button onClick={toggleLanguage} variant="secondary"> {language === "en" ? "🇪🇬 عربي" : "🇬🇧 English"} </Button> </div>
-
-<div className="relative w-full max-w-2xl rounded-2xl bg-white/10 dark:bg-black/20 shadow-xl backdrop-blur-lg p-6 text-center border border-white/20">
-    <div className="flex items-center justify-center gap-4 mb-4">
-      <Image
-        src="https://cdn.discordapp.com/attachments/882226216172679168/1401283853527814224/Picsart_25-08-02_21-57-35-288.jpg"
-        alt="Bot Icon"
-        width={60}
-        height={60}
-        className="rounded-full border border-white shadow-md"
-      />
-      <h1 className="text-3xl font-bold tracking-tight">
-        {language === "en" ? "RolePilot Bot" : "بوت رول بايلوت"}
-      </h1>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="feature">
+            <h4>📌 Easy Role Setup</h4>
+            <p>Create and assign roles with simple commands and intuitive UI.</p>
+          </div>
+          <div class="feature">
+            <h4>⚡ Instant Reactions</h4>
+            <p>Use reaction roles to let members choose their own roles.</p>
+          </div>
+          <div class="feature">
+            <h4>🎯 Role Menus</h4>
+            <p>Design clean and organized role menus with emoji support.</p>
+          </div>
+          <div class="feature">
+            <h4>💬 Logging & Reports</h4>
+            <p>Keep track of role changes and permissions for safety.</p>
+          </div>
+          <div class="feature">
+            <h4>🎨 Role Colors</h4>
+            <p>Let users customize role colors from a predefined palette.</p>
+          </div>
+          <div class="feature">
+            <h4>🛡️ Permission Control</h4>
+            <p>Grant specific access levels to trusted members or roles.</p>
+          </div>
+          <div class="feature">
+            <h4>🌐 Multiserver Support</h4>
+            <p>Manage roles across multiple servers with ease.</p>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <p className="mb-6 text-lg text-muted-foreground">
-      {language === "en"
-        ? "Your ultimate assistant for Discord role automation."
-        : "مساعدك الأمثل لإدارة رولات ديسكورد تلقائيًا."}
-    </p>
-
-    <a
-      href="https://discord.com/oauth2/authorize?client_id=1401226751174246550&scope=bot&permissions=8"
-      className="inline-block px-6 py-3 bg-blue-600 text-white font-medium text-lg rounded-xl shadow hover:bg-blue-700 transition"
-      target="_blank"
-    >
-      🚀 {language === "en" ? "Invite to Discord" : "أضف البوت لديسكورد"}
-    </a>
-  </div>
-</main>
-
-); }
-
+  </body>
+</html>
